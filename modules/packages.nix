@@ -66,6 +66,8 @@
       zstd
       libqalculate
       shellcheck
+      qt6.qtwayland
+      libsForQt5.qt5.qtwayland
       (python311.withPackages(ps: with ps; [
         editorconfig
         jupyter
