@@ -49,8 +49,6 @@
      zsh
      # home-manager
      glib
-     #emacs-pgtk
-     emacsNativeComp
     # ((emacsPackagesFor emacsPgtkNativeComp).emacsWithPackages)
  ];
   users.users.peng.packages = with pkgs; [
@@ -97,5 +95,6 @@
       nixfmt
       scrot
       pavucontrol
+      emacs-pgtk
     ];
 }

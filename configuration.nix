@@ -53,6 +53,7 @@ in
 
   # 启用CUPS打印文档。
   services.printing.enable = true;
+  nix.settings.trusted-users = [ "root" "peng" ];
 
   system.stateVersion = "23.05"; # 请阅读注释！
 }
