@@ -36,7 +36,7 @@
      bear
      gdb
      zsh
-     home-manager
+     # home-manager
      glib
      emacs-gtk
  ];
@@ -76,6 +76,12 @@
       kitty
       wofi
       waybar
-    #  thunderbird
+      clash
+      ranger
+      aspell
+      glslang
+      nixfmt
+      scrot
+      pavucontrol
     ];
 }
