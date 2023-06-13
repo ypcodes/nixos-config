@@ -68,6 +68,7 @@
         psutil # eaf-system-monitor
         retry # eaf-markdown-previewer
         markdown
+        pyte playsound #eaf-pyqterminal
       ]))
       texlive.combined.scheme-full
       pandoc
