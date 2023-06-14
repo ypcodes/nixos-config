@@ -87,6 +87,7 @@
             ];
           })
           ./configuration.nix
+          ./modules/prog.nix
         ];
         # specialArgs = { inherit inputs; };
       };

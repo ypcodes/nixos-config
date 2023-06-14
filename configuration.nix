@@ -30,10 +30,13 @@ let
   desktop = import "${modulesPath}/desktop.nix";
   prog = import "${modulesPath}/prog.nix";
   network = import "${modulesPath}/network.nix";
+  home-manager = import "${modulesPath}/home-manager.nix";
+  # home-manager-overlay = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
 
 in
 {
   imports = [
+    <home-manager/nixos>
     hardware
     boot
     overlays
@@ -44,6 +47,7 @@ in
     network
     desktop
     prog
+    # home-manager
     vim
   ];
 

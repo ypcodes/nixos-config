@@ -34,69 +34,18 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+     # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      wget
      gnumake
+     gdb
      gcc
      clang
      coreutils
      cmake
-     neovim
      git
      clang-tools
-     bear
-     gdb
      zsh
-     # home-manager
      glib
-    # ((emacsPackagesFor emacsPgtkNativeComp).emacsWithPackages)
  ];
-  users.users.peng.packages = with pkgs; [
-      firefox-wayland
-      wpsoffice
-      # xcape xorg.xmodmap xorg.xwininfo xclip xdotool
-      wmctrl
-      xdg-utils
-      dracula-theme
-      wayland wdisplays mako gnome3.adwaita-icon-theme
-      wl-clipboard
-      ctags
-      rustc cargo go nodejs
-      sqlite ripgrep fd exa languagetool
-      zstd
-      libqalculate
-      shellcheck
-      qt6.qtwayland
-      libsForQt5.qt5.qtwayland
-      (python311.withPackages(ps: with ps; [
-        editorconfig
-        jupyter
-        pandas
-        requests
-        pyqt6 sip qtpy qt6.qtwebengine epc lxml pyqt6-webengine # for eaf
-        qrcode # eaf-file-browser
-        pysocks # eaf-browser
-        pymupdf # eaf-pdf-viewer
-        pypinyin # eaf-file-manager
-        psutil # eaf-system-monitor
-        retry # eaf-markdown-previewer
-        markdown
-        pyte playsound #eaf-pyqterminal
-      ]))
-      texlive.combined.scheme-full
-      pandoc
-      librsvg
-      qq
-      kitty
-      wofi
-      waybar
-      clash
-      ranger
-      aspell
-      glslang
-      nixfmt
-      scrot
-      pavucontrol
-      emacs-pgtk
-    ];
+
 }

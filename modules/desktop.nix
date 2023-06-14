@@ -24,6 +24,10 @@
   # sway
   programs.hyprland = {
     enable = true;
+    xwayland = {
+      enable = true;
+      hidpi = false;
+    }; 
     # wrapperFeatures.gtk = true;
   };
  # security.polkit.enable = true;
