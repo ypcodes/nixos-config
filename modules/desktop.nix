@@ -50,4 +50,5 @@
   };
 
   programs.light.enable = true;
+  musnix.enable = true;
 }

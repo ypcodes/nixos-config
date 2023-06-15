@@ -31,12 +31,12 @@ let
   prog = import "${modulesPath}/prog.nix";
   network = import "${modulesPath}/network.nix";
   home-manager = import "${modulesPath}/home-manager.nix";
-  # home-manager-overlay = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
 
 in
 {
   imports = [
     <home-manager/nixos>
+    <musnix>
     hardware
     boot
     overlays
