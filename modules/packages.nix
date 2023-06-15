@@ -30,6 +30,7 @@
     "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
     "unmatched.cachix.org-1:F8TWIP/hA2808FDABsayBCFjrmrz296+5CQaysosTTc="
 ];
+  services.flatpak.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -49,7 +50,7 @@
  ];
  users.users.peng.packages = with pkgs; [
       firefox-wayland
-      wpsoffice
+      # wpsoffice
       # xcape xorg.xmodmap xorg.xwininfo xclip xdotool
       wmctrl
       xdg-utils
@@ -95,11 +96,10 @@
       nixfmt
       scrot
       pavucontrol
-      emacs-gtk
       networkmanagerapplet
       neovim
       xfce.thunar
-      lukesmithxyz-st
+      emacs-gtk
  ];
 
 }
