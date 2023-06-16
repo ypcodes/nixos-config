@@ -15,13 +15,13 @@
     LC_TELEPHONE = "zh_CN.UTF-8";
     LC_TIME = "zh_CN.UTF-8";
   };
-    i18n.inputMethod = {
-      enabled = "fcitx5";
-      fcitx5.addons = with pkgs; [
-	      fcitx5-rime
-	      fcitx5-m17n
- 	      fcitx5-chinese-addons
-      ];
-    };
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-rime
+      fcitx5-m17n
+      fcitx5-chinese-addons
+    ];
+  };
 
 }

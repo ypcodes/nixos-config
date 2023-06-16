@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-    users.users.peng = {
+  users.users.peng = {
     isNormalUser = true;
     description = "peng";
     shell = pkgs.zsh;
@@ -19,7 +19,7 @@
     description = "kanshi daemon";
     serviceConfig = {
       Type = "simple";
-      ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
+      ExecStart = "${pkgs.kanshi}/bin/kanshi -c kanshi_config_file";
     };
   };
 }

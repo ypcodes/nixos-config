@@ -9,8 +9,8 @@
     xkbVariant = "";
     # videosDrivers = ["nvidia"];
     displayManager.gdm = {
-        enable = true;
-        wayland = true;
+      enable = true;
+      wayland = true;
     };
   };
   # services.xserver.videoDrivers = [ "nvidia" ];
@@ -27,10 +27,10 @@
     xwayland = {
       enable = true;
       hidpi = false;
-    }; 
+    };
     # wrapperFeatures.gtk = true;
   };
- # security.polkit.enable = true;
+  # security.polkit.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;

@@ -31,9 +31,11 @@ let
   prog = import "${modulesPath}/prog.nix";
   network = import "${modulesPath}/network.nix";
   home-manager = import "${modulesPath}/home-manager.nix";
-
-in
-{
+  nixvim = import (builtins.fetchGit {
+    url = "https://ghproxy.com/github.com/pta2002/nixvim";
+    ref = "main";
+  });
+in {
   imports = [
     <home-manager/nixos>
     <musnix>
@@ -47,7 +49,6 @@ in
     network
     desktop
     prog
-    # home-manager
     vim
   ];
 

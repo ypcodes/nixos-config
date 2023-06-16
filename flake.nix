@@ -67,15 +67,15 @@
         modules = [
           # Import the configuration.nix we used before, so that the old configuration file can still take effect.
           # Note: /etc/nixos/configuration.nix itself is also a Nix Module, so you can import it directly here
-            ({ ... }: {
+          ({ ... }: {
             # 使用 nixos-cn flake 提供的包
             environment.systemPackages =
               [ nixos-cn.legacyPackages.x86_64-linux.netease-cloud-music ];
             # 使用 nixos-cn 的 binary cache
-            nix.settings.substituters= [
-              "https://nixos-cn.cachix.org"
+            nix.settings.substituters = [ "https://nixos-cn.cachix.org" ];
+            nix.settings.trusted-public-keys = [
+              "nixos-cn.cachix.org-1:L0jEaL6w7kwQOPlLoCR3ADx+E3Q8SEFEcB9Jaibl0Xg="
             ];
-            nix.settings.trusted-public-keys = [ "nixos-cn.cachix.org-1:L0jEaL6w7kwQOPlLoCR3ADx+E3Q8SEFEcB9Jaibl0Xg=" ];
 
             imports = [
               # 将nixos-cn flake提供的registry添加到全局registry列表中
