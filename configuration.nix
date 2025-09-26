@@ -20,6 +20,8 @@ let
 
   # 导入模块
   hardware = import "${modulesPath}/hardware-configuration.nix";
+  hardware-optimized = import "${modulesPath}/hardware-optimized.nix";
+  hardware-services = import "${modulesPath}/hardware-services.nix";
   packages = import "${modulesPath}/packages.nix";
   boot = import "${modulesPath}/boot.nix";
   vim = import "${modulesPath}/vim.nix";
@@ -31,6 +33,8 @@ let
   prog = import "${modulesPath}/prog.nix";
   network = import "${modulesPath}/network.nix";
   home-manager = import "${modulesPath}/home-manager.nix";
+  security = import "${modulesPath}/security.nix";
+  performance = import "${modulesPath}/performance.nix";
   nixvim = import (builtins.fetchGit {
     url = "https://ghproxy.com/github.com/pta2002/nixvim";
     ref = "main";
@@ -40,6 +44,8 @@ in {
     <home-manager/nixos>
     <musnix>
     hardware
+    hardware-optimized
+    hardware-services
     boot
     overlays
     packages
@@ -50,6 +56,9 @@ in {
     desktop
     prog
     vim
+    home-manager
+    security
+    performance
   ];
 
   # Bootloader.

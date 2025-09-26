@@ -13,7 +13,7 @@
       };
   };
 
-  # nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
+  # Binary cache configuration
   nix.settings.substituters = [
     "https://mirrors.ustc.edu.cn/nix-channels/store"
     "https://nixos-cn.cachix.org"
@@ -30,12 +30,16 @@
     "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
     "unmatched.cachix.org-1:F8TWIP/hA2808FDABsayBCFjrmrz296+5CQaysosTTc="
   ];
+  
+  # Enable Flatpak
   services.flatpak.enable = true;
+  
+  # Enable experimental Nix features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  
+  # System packages (essential tools and development environment)
   environment.systemPackages = with pkgs; [
-    # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    # Core utilities
     wget
     gnumake
     gdb
@@ -49,78 +53,22 @@
     glib
     home-manager
     neovim-nightly
-  ];
-  users.users.peng.packages = with pkgs; [
-    firefox-wayland
-    # wpsoffice
-    # xcape xorg.xmodmap xorg.xwininfo xclip xdotool
-    wmctrl
-    xdg-utils
-    dracula-theme
-    wayland
-    wdisplays
-    mako
-    gnome3.adwaita-icon-theme
-    wl-clipboard
-    ctags
-    rustc
-    cargo
-    go
-    nodejs
-    sqlite
+    
+    # System tools
+    htop
+    tree
+    unzip
+    zip
+    curl
+    jq
+    bat
+    eza
+    fzf
     ripgrep
     fd
-    exa
-    languagetool
-    zstd
-    bear
-    libqalculate
-    shellcheck
-    qt6.qtwayland
-    libsForQt5.qt5.qtwayland
-    (python311.withPackages (ps:
-      with ps; [
-        editorconfig
-        jupyter
-        pandas
-        requests
-        pyqt6
-        sip
-        qtpy
-        qt6.qtwebengine
-        epc
-        lxml
-        pyqt6-webengine # for eaf
-        qrcode # eaf-file-browser
-        pysocks # eaf-browser
-        pymupdf # eaf-pdf-viewer
-        pypinyin # eaf-file-manager
-        psutil # eaf-system-monitor
-        retry # eaf-markdown-previewer
-        markdown
-        pyte
-        playsound # eaf-pyqterminal
-      ]))
-    texlive.combined.scheme-full
-    pandoc
-    librsvg
-    qq
-    kitty
-    wofi
-    rofi-wayland
-    waybar
-    clash
-    ranger
-    aspell
-    glslang
-    nixfmt
-    scrot
-    pavucontrol
-    networkmanagerapplet
-    xfce.thunar
-    emacs-gtk
-    clipman
-    swww
+    zoxide
   ];
 
+  # User-specific packages (moved to home-manager configuration)
+  # These will be managed by home-manager for better isolation
 }
