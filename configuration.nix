@@ -19,9 +19,8 @@ let
   modulesPath = ./modules;
 
   # 导入模块
-  hardware = import "${modulesPath}/hardware-configuration.nix";
-  hardware-optimized = import "${modulesPath}/hardware-optimized.nix";
-  hardware-services = import "${modulesPath}/hardware-services.nix";
+  hardware = import "${modulesPath}/hardware.nix";
+  hardware-auto = import "${modulesPath}/hardware-auto.nix";
   packages = import "${modulesPath}/packages.nix";
   boot = import "${modulesPath}/boot.nix";
   vim = import "${modulesPath}/vim.nix";
@@ -36,16 +35,14 @@ let
   security = import "${modulesPath}/security.nix";
   performance = import "${modulesPath}/performance.nix";
   nixvim = import (builtins.fetchGit {
-    url = "https://ghproxy.com/github.com/pta2002/nixvim";
+    url = "https://gh-proxy.com/github.com/pta2002/nixvim";
     ref = "main";
   });
 in {
   imports = [
     <home-manager/nixos>
     <musnix>
-    hardware
-    hardware-optimized
-    hardware-services
+    hardware-auto
     boot
     overlays
     packages

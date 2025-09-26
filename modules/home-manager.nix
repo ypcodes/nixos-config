@@ -98,14 +98,65 @@
         };
       };
       
+      # SSH configuration
+      programs.ssh = {
+        enable = true;
+        extraConfig = ''
+          # GitHub SSH configuration
+          Host github.com
+            HostName github.com
+            User git
+            Port 22
+            PreferredAuthentications publickey
+            IdentityFile ~/.ssh/id_ed25519
+            IdentitiesOnly yes
+          
+          # GitHub SSH over HTTPS (if port 22 is blocked)
+          Host github-https
+            HostName ssh.github.com
+            User git
+            Port 443
+            PreferredAuthentications publickey
+            IdentityFile ~/.ssh/id_ed25519
+            IdentitiesOnly yes
+        '';
+      };
+      
       # Git configuration
       programs.git = {
         enable = true;
-        userName = "peng";
-        userEmail = "peng@example.com"; # Change this to your actual email
+        userName = "ypcodes"; # Change this to your GitHub username
+        userEmail = "yepeng230@gmail.com"; # Change this to your actual GitHub email
         extraConfig = {
           init.defaultBranch = "main";
           pull.rebase = false;
+          # GitHub specific settings
+          url."https://github.com/".insteadOf = "git@github.com:";
+          url."https://".insteadOf = "git://";
+          # Credential helper
+          credential.helper = "store";
+          # Push settings
+          push.default = "simple";
+          push.autoSetupRemote = true;
+          # Pull settings
+          pull.ff = "only";
+          # Merge settings
+          merge.tool = "vimdiff";
+          # Diff settings
+          diff.tool = "vimdiff";
+          # Color settings
+          color.ui = true;
+          color.branch = true;
+          color.diff = true;
+          color.status = true;
+          # Alias settings
+          alias.st = "status";
+          alias.co = "checkout";
+          alias.br = "branch";
+          alias.ci = "commit";
+          alias.unstage = "reset HEAD --";
+          alias.last = "log -1 HEAD";
+          alias.visual = "!gitk";
         };
       };
       

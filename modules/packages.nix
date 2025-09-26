@@ -48,6 +48,9 @@
     coreutils
     cmake
     git
+    gitAndTools.gh # GitHub CLI
+    gitAndTools.git-lfs # Git Large File Storage
+    gitAndTools.hub # GitHub command line tool
     clang-tools
     zsh
     glib
